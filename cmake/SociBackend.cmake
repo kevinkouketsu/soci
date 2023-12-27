@@ -78,6 +78,8 @@ macro(soci_backend NAME)
 
   # Backend option available to user
   set(THIS_BACKEND_OPTION SOCI_${NAMEU})
+  option(${THIS_BACKEND_OPTION}
+    "Attempt to build ${PROJECT_NAME} backend for ${NAME}" ON)
 
   soci_backend_deps_found(${NAMEU} "${THIS_BACKEND_DEPENDS}" ${NAMEU}_DEPS_FOUND)
   if(NOT ${NAMEU}_DEPS_FOUND)
@@ -230,7 +232,7 @@ macro(soci_backend NAME)
       endif()
 
     else()
-        colormsg(YELLOW "${NAME} backend explicitly disabled")
+        colormsg(HIRED "${NAME}" RED "backend disabled, since")
     endif()
 
   endif()
