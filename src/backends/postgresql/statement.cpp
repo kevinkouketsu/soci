@@ -821,6 +821,7 @@ void postgresql_statement_backend::describe_column(int colNum, data_type & type,
         char typeCategory = (*typeCategoryIt).second;
         switch ( typeCategory )
         {
+            case 'A': // array type
             case 'D': // date type
             case 'E': // enum type
             case 'T': // time type
